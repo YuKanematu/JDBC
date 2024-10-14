@@ -1,4 +1,4 @@
-# Eclipseコンソールからデータベースにアクセスできるプログラム
+# Eclipseのコンソールからデータベースにアクセスできるプログラム
 ### 概要
 このプログラムはEclipseのコンソールからデータベースにアクセスし、ユーザーや商品、購入履歴などの操作を行うことができます。
 JavaとMySQLを使用し、JDBCドライバーを介してデータベースと接続します。
@@ -30,14 +30,14 @@ JavaとMySQLを使用し、JDBCドライバーを介してデータベースと�
 | address     | VARCHAR(255)    | NOT NULL             |
 | gender      | CHAR(1)        | NOT NULL             |
 
-SQLクエリ:
-CREATE TABLE users (
-  user_id INT AUTO_INCREMENT NOT NULL,
-  name TEXT NOT NULL,
-  address VARCHAR(255) NOT NULL,
-  gender CHAR(1) NOT NULL,
-  PRIMARY KEY (user_id)
-);  
+SQLクエリ:  
+CREATE TABLE users (  
+  user_id INT AUTO_INCREMENT NOT NULL,  
+  name TEXT NOT NULL,  
+  address VARCHAR(255) NOT NULL,  
+  gender CHAR(1) NOT NULL,  
+  PRIMARY KEY (user_id)  
+);
 
 2. 商品カテゴリテーブル
 テーブル名: goods_categories
@@ -47,11 +47,11 @@ CREATE TABLE users (
 | goods_category_id    | INT            | AUTO_INCREMENT, PK   |
 | goods_category_name  | TEXT           | NOT NULL             |
 
-SQLクエリ:
-CREATE TABLE goods_categories (
-  goods_category_id INT AUTO_INCREMENT NOT NULL,
-  goods_category_name TEXT NOT NULL,
-  PRIMARY KEY (goods_category_id)
+SQLクエリ:  
+CREATE TABLE goods_categories (  
+  goods_category_id INT AUTO_INCREMENT NOT NULL,  
+  goods_category_name TEXT NOT NULL,  
+  PRIMARY KEY (goods_category_id)  
 );
 
 3. 商品テーブル
@@ -64,14 +64,14 @@ CREATE TABLE goods_categories (
 | goods_category_id | INT           | NOT NULL, FK (goods_categories.goods_category_id) |
 | goods_price     | INT            | NOT NULL                 |
 
-SQLクエリ:
-CREATE TABLE goods (
-  goods_id INT AUTO_INCREMENT NOT NULL,
-  goods_name TEXT NOT NULL,
-  goods_category_id INT NOT NULL,
-  goods_price INT NOT NULL,
-  PRIMARY KEY (goods_id),
-  FOREIGN KEY (goods_category_id) REFERENCES goods_categories(goods_category_id)
+SQLクエリ:  
+CREATE TABLE goods (  
+  goods_id INT AUTO_INCREMENT NOT NULL,  
+  goods_name TEXT NOT NULL,  
+  goods_category_id INT NOT NULL,  
+  goods_price INT NOT NULL,  
+  PRIMARY KEY (goods_id),  
+  FOREIGN KEY (goods_category_id) REFERENCES goods_categories(goods_category_id)  
 );
 
 4. 商品購入テーブル
@@ -85,14 +85,14 @@ CREATE TABLE goods (
 | purchase_number  | INT            | NOT NULL                 |
 | purchase_date    | DATE           | NOT NULL                 |
 
-SQLクエリ:
-CREATE TABLE purchase_goods (
-  purchase_id INT AUTO_INCREMENT NOT NULL,
-  goods_id INT NOT NULL,
-  user_id INT NOT NULL,
-  purchase_number INT NOT NULL,
-  purchase_date DATE NOT NULL,
-  PRIMARY KEY (purchase_id),
-  FOREIGN KEY (goods_id) REFERENCES goods(goods_id),
-  FOREIGN KEY (user_id) REFERENCES users(user_id)
+SQLクエリ:  
+CREATE TABLE purchase_goods (  
+  purchase_id INT AUTO_INCREMENT NOT NULL,  
+  goods_id INT NOT NULL,  
+  user_id INT NOT NULL,  
+  purchase_number INT NOT NULL,  
+  purchase_date DATE NOT NULL,  
+  PRIMARY KEY (purchase_id),  
+  FOREIGN KEY (goods_id) REFERENCES goods(goods_id),  
+  FOREIGN KEY (user_id) REFERENCES users(user_id)  
 );
