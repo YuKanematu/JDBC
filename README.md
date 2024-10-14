@@ -1,7 +1,6 @@
 # Eclipseコンソールからデータベースにアクセスできるプログラム
 ### 概要
 このプログラムはEclipseのコンソールからデータベースにアクセスし、ユーザーや商品、購入履歴などの操作を行うことができます。
-
 JavaとMySQLを使用し、JDBCドライバーを介してデータベースと接続します。
 
 ### 技術スタック
@@ -38,7 +37,7 @@ CREATE TABLE users (
   address VARCHAR(255) NOT NULL,
   gender CHAR(1) NOT NULL,
   PRIMARY KEY (user_id)
-);
+);  
 
 2. 商品カテゴリテーブル
 テーブル名: goods_categories
