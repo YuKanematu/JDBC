@@ -96,12 +96,3 @@ CREATE TABLE purchase_goods (
   FOREIGN KEY (goods_id) REFERENCES goods(goods_id),
   FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
-
-使用方法
-1. プログラムを実行する前に、MySQLデータベースをセットアップしてください。
-2. 各テーブルの作成クエリを実行し、必要なデータベース構造を準備してください。
-3. Eclipse上でJavaプログラムを実行し、コンソールからデータベースにアクセスして操作を行います。
-
-注意事項
-- MySQL JDBC Driverを依存関係として追加してください。
-- データベース接続情報を適切に設定してください (URL、ユーザー名、パスワードなど)。
